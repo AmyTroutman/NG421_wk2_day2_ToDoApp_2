@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ModalComponent } from './modal/modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TodoComponent } from './todo/todo.component';
+import { CreateTodoComponent } from './create-todo/create-todo.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ModalComponent
+    ModalComponent,
+    TodoComponent,
+    CreateTodoComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,
