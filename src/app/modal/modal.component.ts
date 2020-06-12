@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
 
+  modalInstance;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  close() {
+    this.modalInstance.close('no');
   }
 
 }
