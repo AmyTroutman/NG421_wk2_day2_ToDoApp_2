@@ -25,7 +25,6 @@ export class TodoService {
       title: this.todoTitle,
       isDone: false
     });
-
     // this part isn't working
     // resets our todoTitle variable to an empty string
     this.todoTitle = '';
@@ -38,7 +37,7 @@ export class TodoService {
   }
 
   deleteTodo(todo: any) {
-    const index = this.todoList.findIndex(todoItem => todoItem.id === todo.id);
+    const index = this.todoList.findIndex(todoItem => todoItem === todo);
     this.todoList.splice(index, 1);
   }
 

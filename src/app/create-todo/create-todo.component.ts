@@ -9,16 +9,19 @@ import { TodoService } from '../services/todo.service';
 })
 export class CreateTodoComponent implements OnInit {
 
-  @Input() todo: ITodo;
+  todoList: ITodo [];
   todoTitle: string;
+  todoId = 0;
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
+    this.todoList = this.todoService.getTodos();
     this.todoTitle = this.todoService.todoTitle;
   }
-  // this isn't working
+
   createTodo() {
     this.todoService.addTodo();
   }
+
 
 }
