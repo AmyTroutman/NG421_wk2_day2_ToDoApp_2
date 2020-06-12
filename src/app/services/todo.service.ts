@@ -44,5 +44,7 @@ export class TodoService {
     }
   }
 
-  getTodos(){}
+  getTodos() {
+    return this.todoList;
+  }
 }
