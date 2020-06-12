@@ -8,14 +8,11 @@ import { TodoService } from '../services/todo.service';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
-
-
-  todoList = Array<ITodo>();
-
   constructor(private todoService: TodoService) { }
+  todos: ITodo[];
 
   ngOnInit() {
-    this.todoList = this.todoService.getTodos();
+    this.todos = this.todoService.getTodos();
   }
 
 }

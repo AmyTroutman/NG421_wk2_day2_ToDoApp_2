@@ -9,13 +9,8 @@ import { TodoService } from './services/todo.service';
 })
 export class AppComponent implements OnInit {
   ngOnInit() {
-    this.todoService.todoTitle = '';
-    this.todoService.todoList = [
-      // example of how to make an item in todo list
-      {id: 1, title: 'Install Angular CLI', isDone: false },
 
-    ];
   }
 
-  constructor(private todoService: TodoService) {}
+  constructor() {}
 }

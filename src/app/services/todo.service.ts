@@ -12,7 +12,10 @@ export class TodoService {
   }
 
   title = 'Todos';
-  todoList: ITodo [] = [];
+  todoList: ITodo [] =  [
+    // example of how to make an item in todo list
+    {id: 1, title: 'Install Angular CLI', isDone: false },
+  ];
   todoTitle: string;
   todoId = 0;
 
@@ -27,6 +30,11 @@ export class TodoService {
     // resets our todoTitle variable to an empty string
     this.todoTitle = '';
     this.todoId++;
+  }
+
+   // this isn't working
+   getTodos() {
+    return this.todoList;
   }
 
   deleteTodo(todo: any) {
@@ -50,8 +58,4 @@ export class TodoService {
   //   }
   // }
 
-  // this isn't working
-  getTodos() {
-    return this.todoList;
-  }
 }

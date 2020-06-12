@@ -8,6 +8,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TodoComponent } from './todo/todo.component';
 import { CreateTodoComponent } from './create-todo/create-todo.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoService } from './services/todo.service';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     FormsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [TodoService],
   bootstrap: [AppComponent],
   entryComponents: [ModalComponent]
 })
