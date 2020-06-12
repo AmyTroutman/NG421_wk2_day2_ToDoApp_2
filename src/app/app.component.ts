@@ -1,36 +1,39 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent} from './modal/modal.component';
+import { ITodo } from './itodo';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'Todos';
-  todoList: any [] = [];
+  todoList: ITodo [] = [];
   todoTitle: string;
-  todoId: number = 0;
+  todoId = 0;
   ngOnInit() {
     this.todoTitle = '';
     this.todoList = [
       // example of how to make an item in todo list
-      { title: 'Install Angular CLI', isDone: false },
+      {id: 1, title: 'Install Angular CLI', isDone: false },
 
     ];
   }
 
-  constructor(private modalService: NgbModal){}
+  constructor(private modalService: NgbModal) {}
 
   addTodo(): void {
     this.todoList.push({
+      id: this.todoId,
       title: this.todoTitle,
       isDone: false
     });
 
     // resets our todoTitle variable to an empty string
     this.todoTitle = '';
+    this.todoId++;
   }
 
   async deleteTodo(todo: any) {
