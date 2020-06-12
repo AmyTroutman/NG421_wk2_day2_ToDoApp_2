@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ITodo } from '../itodo';
+import { TodoService } from '../services/todo.service';
+import { isFormattedError } from '@angular/compiler';
 
 @Component({
   selector: 'app-todo',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoComponent implements OnInit {
 
-  constructor() { }
+  @Input() todo: ITodo;
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
+  }
+
+  removeTodo() {
+    this.todoService.deleteTodo(this.todoService.todoId);
   }
 
 }

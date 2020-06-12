@@ -10,7 +10,7 @@ export class TodoService {
 
   constructor(private modalService: NgbModal) {
   }
-  // tslint:disable-next-line: no-trailing-whitespace
+
   title = 'Todos';
   todoList: ITodo [] = [];
   todoTitle: string;
@@ -23,27 +23,34 @@ export class TodoService {
       isDone: false
     });
 
+    // this part isn't working
     // resets our todoTitle variable to an empty string
     this.todoTitle = '';
     this.todoId++;
   }
 
-  async deleteTodo(todo: any) {
-    const modal = this.modalService.open(ModalComponent);
-    const modalComponent = modal.componentInstance;
-    modalComponent.modalInstance = modal;
-
-    try {
-      const theResult = await modal.result;
-      if (theResult === 'yes') {
-        const index = this.todoList.findIndex(todoItem => todoItem === todo);
-        this.todoList.splice(index, 1);
-      }
-    } catch (ex) {
-      console.log(ex);
-    }
+  deleteTodo(todo: any) {
+    const index = this.todoList.findIndex(todoItem => todoItem.id === todo.id);
+    this.todoList.splice(index, 1);
   }
 
+  // async deleteTodo(todo: any) {
+  //   const modal = this.modalService.open(ModalComponent);
+  //   const modalComponent = modal.componentInstance;
+  //   modalComponent.modalInstance = modal;
+
+  //   try {
+  //     const theResult = await modal.result;
+  //     if (theResult === 'yes') {
+  //       const index = this.todoList.findIndex(todoItem => todoItem === todo);
+  //       this.todoList.splice(index, 1);
+  //     }
+  //   } catch (ex) {
+  //     console.log(ex);
+  //   }
+  // }
+
+  // this isn't working
   getTodos() {
     return this.todoList;
   }
