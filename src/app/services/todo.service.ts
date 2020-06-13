@@ -8,16 +8,16 @@ import { ITodo } from '../itodo';
 })
 export class TodoService {
 
-  constructor(private modalService: NgbModal) {
-  }
-
-  title = 'Todos';
+  // title = 'Todos';
   todoList: ITodo [] =  [
     // example of how to make an item in todo list
-    {id: 1, title: 'Install Angular CLI', isDone: false },
+    // {id: 1, title: 'Install Angular CLI', isDone: false },
   ];
   todoTitle: string;
   todoId = 0;
+
+  constructor(private modalService: NgbModal) {
+  }
 
   addTodo(): void {
     this.todoList.push({
@@ -36,7 +36,7 @@ export class TodoService {
     return this.todoList;
   }
 
-  deleteTodo(todo: any) {
+  deleteTodo(todo: ITodo) {
     const index = this.todoList.findIndex(todoItem => todoItem === todo);
     this.todoList.splice(index, 1);
   }
