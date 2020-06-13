@@ -16,5 +16,7 @@ export class ModalComponent implements OnInit {
   close() {
     this.modalInstance.close('no');
   }
-
+  yes() {
+    this.modalInstance.close('yes');
+  }
 }

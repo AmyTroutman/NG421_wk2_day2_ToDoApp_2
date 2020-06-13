@@ -9,7 +9,7 @@ import { ITodo } from '../itodo';
 export class TodoService {
 
   // title = 'Todos';
-  todoList: ITodo [] =  [
+  todoList: ITodo[] = [
     // example of how to make an item in todo list
     // {id: 1, title: 'Install Angular CLI', isDone: false },
   ];
@@ -23,7 +23,7 @@ export class TodoService {
     this.todoList.push({
       id: this.todoId,
       title: todoTitle,
-      isDone: false
+      description: ''
     });
 
     // resets our todoTitle variable to an empty string
@@ -31,29 +31,27 @@ export class TodoService {
     this.todoId++;
   }
 
-   getTodos() {
+  getTodos() {
     return this.todoList;
   }
 
-  deleteTodo(todo: ITodo) {
-    const index = this.todoList.findIndex((todoItem) => todoItem === todo);
-    this.todoList.splice(index, 1);
-  }
-
-  // async deleteTodo(todo: any) {
-  //   const modal = this.modalService.open(ModalComponent);
-  //   const modalComponent = modal.componentInstance;
-  //   modalComponent.modalInstance = modal;
-
-  //   try {
-  //     const theResult = await modal.result;
-  //     if (theResult === 'yes') {
-  //       const index = this.todoList.findIndex(todoItem => todoItem === todo);
-  //       this.todoList.splice(index, 1);
-  //     }
-  //   } catch (ex) {
-  //     console.log(ex);
-  //   }
+  // deleteTodo(todo: ITodo) {
+  //   const index = this.todoList.findIndex((todoItem) => todoItem === todo);
+  //   this.todoList.splice(index, 1);
   // }
+
+  async deleteTodo(todo: ITodo) {
+    const modal = this.modalService.open(ModalComponent);
+    const modalComponent = modal.componentInstance;
+    modalComponent.modalInstance = modal;
+
+
+    const theResult = await modal.result;
+    if (theResult === 'yes') {
+      const index = this.todoList.findIndex((todoItem) => todoItem === todo);
+      this.todoList.splice(index, 1);
+    }
+
+  }
 
 }

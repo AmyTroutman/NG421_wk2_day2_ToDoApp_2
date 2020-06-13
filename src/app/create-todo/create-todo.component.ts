@@ -10,6 +10,7 @@ import { TodoService } from '../services/todo.service';
 export class CreateTodoComponent implements OnInit {
   todoList: ITodo [];
   todoTitle: string;
+  description: string;
   // todoId = 0;
   constructor(private todoService: TodoService) { }
 
@@ -20,6 +21,7 @@ export class CreateTodoComponent implements OnInit {
 
   createTodo() {
     this.todoService.addTodo(this.todoTitle);
+    this.todoTitle = '';
   }
 
 }
