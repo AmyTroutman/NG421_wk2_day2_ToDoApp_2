@@ -2,7 +2,7 @@
     <li class="list-group-item" *ngFor="let todo of todos">
         <div class="view">
             <label>{{todo.title}}</label>
-            <app-todo></app-todo>
+            <app-todo [todo]="todo"></app-todo>
         </div>
     </li>
 </ul>

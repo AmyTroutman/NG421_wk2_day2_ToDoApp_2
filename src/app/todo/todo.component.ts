@@ -10,7 +10,7 @@ import { isFormattedError } from '@angular/compiler';
 })
 export class TodoComponent implements OnInit {
 
-  todo: ITodo;
+  @Input()todo: ITodo;
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {

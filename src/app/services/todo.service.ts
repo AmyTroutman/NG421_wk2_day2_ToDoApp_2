@@ -14,30 +14,29 @@ export class TodoService {
     // {id: 1, title: 'Install Angular CLI', isDone: false },
   ];
   todoTitle: string;
-  todoId = 0;
+  todoId: number;
 
   constructor(private modalService: NgbModal) {
   }
 
-  addTodo(): void {
+  addTodo(todoTitle: string) {
     this.todoList.push({
       id: this.todoId,
-      title: this.todoTitle,
+      title: todoTitle,
       isDone: false
     });
-    // this part isn't working
+
     // resets our todoTitle variable to an empty string
     this.todoTitle = '';
     this.todoId++;
   }
 
-   // this isn't working
    getTodos() {
     return this.todoList;
   }
 
   deleteTodo(todo: ITodo) {
-    const index = this.todoList.findIndex(todoItem => todoItem === todo);
+    const index = this.todoList.findIndex((todoItem) => todoItem === todo);
     this.todoList.splice(index, 1);
   }
 
